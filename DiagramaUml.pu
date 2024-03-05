@@ -1,0 +1,41 @@
+@startuml practica
+
+entity Usuario {
+    + id_usuario
+    --
+    + nombre
+    + lista_libros_reservados
+}
+
+entity Libro {
+    + id_libro
+    --
+    + titulo
+}
+
+entity Reseña {
+    + id_reseña
+    --
+    + comentario
+}
+
+entity Autor {
+    + id_autor
+    --
+    + nombre
+}
+
+entity Categoría {
+    + id_categoria
+    --
+    + nombre
+}
+
+Usuario "1" -- "N" Libro : reserva
+Usuario "1" -- "N" Reseña : deja
+Libro "1" -- "1" Autor : pertenece
+Libro "1" -- "N" Reseña : tiene
+Libro "N" -- "N" Categoría : clasificado_en
+Autor "1" -- "N" Libro : tiene
+
+@enduml
